@@ -6,6 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Nunito Sans', sans-serif;
+  background:  hsl(0, 0%, 98%);
 }
 
 code {

@@ -44,7 +44,11 @@ const useStyles = makeStyles(theme =>
             height:'300px',
             paddingTop: "1%",
             paddingLeft: "2%",
-            paddingRight: "2%"
+            paddingRight: "2%",
+            transition: 'all 0.3s ease-out',
+            "&:hover":{
+              transform: 'translate(-5px,-20px)'
+          }
         },
           media: {
             height: 140,

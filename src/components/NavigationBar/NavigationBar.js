@@ -20,7 +20,7 @@ const NavigationBar = () =>{
     };
     return(
         <div className={classes.root}>
-            <AppBar position="static" style={{ background: "white", color: "black" }}>
+            <AppBar position="static" className={classes.Appbar}>
             <Toolbar>
                 <Typography variant="h6" className={classes.title}>
                 Where in the world?
@@ -45,6 +45,11 @@ const NavigationBar = () =>{
 
 const useStyles = makeStyles(theme => 
     createStyles({
+        Appbar: {
+            background: "white",
+             color: "black",
+             padding:'4px 3%'
+        },
         root: {
             flexGrow: 1
           },
