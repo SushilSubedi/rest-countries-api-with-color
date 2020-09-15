@@ -1,4 +1,4 @@
-import React,{ useState } from 'react';
+import React,{ useState,useContext, useEffect } from 'react';
 import { makeStyles,createStyles } from '@material-ui/core';
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -6,16 +6,28 @@ import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import Brightness2SharpIcon from "@material-ui/icons/Brightness2Sharp";
 import Brightness2OutlinedIcon from "@material-ui/icons/Brightness2Outlined";
+import ThemeContext from '../../ContextAPI/ThemeContextAPI/ThemeContext';
 
 const NavigationBar = () =>{
     const classes = useStyles();
     const [darkMode, setDarkMode] = useState(false);
+    const { theme,setTheme } = useContext(ThemeContext);
+
+    useEffect(() => {
+      if(theme){
+        setDarkMode(true);
+      }else{
+        setDarkMode(false);
+      }
+    },[theme])
 
     const handleChangeColor = () => {
       if (!darkMode) {
         setDarkMode(true);
+        setTheme(true)
       } else {
         setDarkMode(false);
+        setTheme(false);
       }
     };
     return(

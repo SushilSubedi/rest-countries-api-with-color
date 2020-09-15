@@ -19,7 +19,7 @@ const SearchFilter = () => {
                 <SearchIcon />
                 </div>
                 <InputBase
-                placeholder="Search…"
+                placeholder="Search for a country..."
                 classes={{
                     root: classes.inputRoot,
                     input: classes.inputInput,
@@ -84,7 +84,10 @@ const useStyles = makeStyles(theme =>
           inputRoot: {
             color: 'inherit',
             height:'48px',
-            width:'442px'
+            width:'442px',
+            fontFamily:'inherit',
+            fontSize:'16px',
+            border:'1px solid hsl(0, 0%, 100%)'
           },
           inputInput: {
             padding: theme.spacing(1, 1, 1, 0),
@@ -92,6 +95,8 @@ const useStyles = makeStyles(theme =>
             paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
             transition: theme.transitions.create('width'),
             width: '100%',
+            fontFamily:'inherit',
+            fontSize:'16px',
             [theme.breakpoints.up('sm')]: {
               width: '12ch',
               '&:focus': {

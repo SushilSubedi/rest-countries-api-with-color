@@ -19,7 +19,7 @@ const CountryCard = () => {
             image="/static/images/cards/contemplative-reptile.jpg"
             title="Contemplative Reptile"
           />
-          <CardContent>
+          <CardContent className={classes.CardContent}>
               <Typography className={classes.name} gutterBottom variant="h5" component="h2">
                 Germany
               </Typography>
@@ -60,13 +60,13 @@ const useStyles = makeStyles(theme =>
         root: {
             width: '300px',
             height:'300px',
-            paddingTop: "1%",
-            paddingLeft: "4%",
-            paddingRight: "2%",
             transition: 'all 0.3s ease-out',
             "&:hover":{
               transform: 'translate(-5px,-20px)'
           }
+        },
+        CardContent:{
+          padding:'4% 11%'
         },
         name: {
           fontFamily:'inherit',
