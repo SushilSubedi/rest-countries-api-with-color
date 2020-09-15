@@ -22,19 +22,19 @@ const NavigationBar = () =>{
         <div className={classes.root}>
             <AppBar position="static" className={classes.Appbar}>
             <Toolbar>
-                <Typography variant="h6" className={classes.title}>
-                Where in the world?
+                <Typography variant="h5" className={classes.title}>
+                  Where in the world?
                 </Typography>
                 <div>
                 <IconButton onClick={handleChangeColor} className={classes.icon}>
                     {
                         !darkMode ? (
-                        <Brightness2OutlinedIcon />
+                        <Brightness2OutlinedIcon className={classes.SingleIcon} />
                         ) : (
-                        <Brightness2SharpIcon />
+                        <Brightness2SharpIcon className={classes.SingleIcon} />
                         )
                     }
-                    <Typography>Dark Mode</Typography>
+                    <Typography className={classes.typo2}>Dark Mode</Typography>
                 </IconButton>
                 </div>
             </Toolbar>
@@ -48,13 +48,27 @@ const useStyles = makeStyles(theme =>
         Appbar: {
             background: "white",
              color: "black",
-             padding:'4px 3%'
+             padding:'4px 4%'
+        },
+        typo2: {
+          fontFamily: 'inherit',
+          fontSize:'14px',
+          fontWeight:'600',
+          marginLeft:'2px'
+        },
+        SingleIcon: {
+          transform: 'rotateZ(140deg)',
+          paddingLeft:'3px',
+          fontSize:'20px'
         },
         root: {
             flexGrow: 1
           },
           title: {
-            flexGrow: 1
+            flexGrow: 1,
+            fontFamily: 'inherit',
+            fontSize:'18px',
+            fontWeight:'800'
           },
           icon: {
             width: "140px"
