@@ -20,33 +20,33 @@ const CountryCard = () => {
             title="Contemplative Reptile"
           />
           <CardContent className={classes.CardContent}>
-              <Typography className={classes.name} gutterBottom variant="h5" component="h2">
+              <Typography color="textprimary" className={classes.name} gutterBottom variant="h5" component="h2">
                 Germany
               </Typography>
 
               <div className={classes.information}>
-                <Typography className={classes.detail}  color="textSecondary" component="p">
+                <Typography color="textprimary"  className={classes.detail} component="p">
                     Population:
                 </Typography>
-                <Typography className={classes.body}  variant="body2" color="textSecondary" component="p">
+                <Typography color="textsecondary" className={classes.body} variant="body2" component="p">
                       123525
                 </Typography>
               </div>
 
               <div className={classes.information}>
-                <Typography className={classes.detail}  color="textSecondary" component="p">
+                <Typography color="textprimary"  className={classes.detail} component="p">
                     Region:
                 </Typography>
-                <Typography className={classes.body}   variant="body2" color="textSecondary" component="p">
+                <Typography color="textsecondary" className={classes.body} variant="body2" component="p">
                     Europe
                 </Typography>
               </div>
 
               <div className={classes.information}>
-                <Typography className={classes.detail}   color="textSecondary" component="p">
+                <Typography color="textprimary"  className={classes.detail} component="p">
                   Capital:
                 </Typography>
-                <Typography className={classes.body}   variant="body2" color="textSecondary" component="p">
+                <Typography color="textsecondary" className={classes.body} variant="body2" component="p">
                      Berlin
                 </Typography>
             </div>

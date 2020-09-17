@@ -58,8 +58,6 @@ const NavigationBar = () =>{
 const useStyles = makeStyles(theme => 
     createStyles({
         Appbar: {
-            background: "white",
-             color: "black",
              padding:'4px 4%'
         },
         typo2: {
