@@ -61,7 +61,6 @@ const useStyles = makeStyles(theme =>
              padding:'4px 4%'
         },
         typo2: {
-          fontFamily: 'inherit',
           fontSize:'14px',
           fontWeight:'600',
           marginLeft:'2px'
@@ -76,7 +75,6 @@ const useStyles = makeStyles(theme =>
           },
           title: {
             flexGrow: 1,
-            fontFamily: 'inherit',
             fontSize:'18px',
             fontWeight:'800'
           },

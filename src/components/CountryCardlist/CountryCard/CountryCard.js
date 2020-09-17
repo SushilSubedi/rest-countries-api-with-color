@@ -20,33 +20,33 @@ const CountryCard = () => {
             title="Contemplative Reptile"
           />
           <CardContent className={classes.CardContent}>
-              <Typography color="textprimary" className={classes.name} gutterBottom variant="h5" component="h2">
+              <Typography color="textPrimary" className={classes.name} gutterBottom variant="h5" component="h2">
                 Germany
               </Typography>
 
               <div className={classes.information}>
-                <Typography color="textprimary"  className={classes.detail} component="p">
+                <Typography color="textPrimary"  className={classes.detail} component="p">
                     Population:
                 </Typography>
-                <Typography color="textsecondary" className={classes.body} variant="body2" component="p">
+                <Typography color="textSecondary" className={classes.body} variant="body2" component="p">
                       123525
                 </Typography>
               </div>
 
               <div className={classes.information}>
-                <Typography color="textprimary"  className={classes.detail} component="p">
+                <Typography color="textPrimary"  className={classes.detail} component="p">
                     Region:
                 </Typography>
-                <Typography color="textsecondary" className={classes.body} variant="body2" component="p">
+                <Typography color="textSecondary" className={classes.body} variant="body2" component="p">
                     Europe
                 </Typography>
               </div>
 
               <div className={classes.information}>
-                <Typography color="textprimary"  className={classes.detail} component="p">
+                <Typography color="textPrimary"  className={classes.detail} component="p">
                   Capital:
                 </Typography>
-                <Typography color="textsecondary" className={classes.body} variant="body2" component="p">
+                <Typography color="textSecondary" className={classes.body} variant="body2" component="p">
                      Berlin
                 </Typography>
             </div>
@@ -69,24 +69,20 @@ const useStyles = makeStyles(theme =>
           padding:'4% 11%'
         },
         name: {
-          fontFamily:'inherit',
           paddingBottom:'4px',
-          fontWeight:'600'
+          fontWeight:'800'
         },
         detail: {
-          fontFamily:'inherit',
           fontWeight:'600',
           paddingRight:'4px',
-          fontSize:'16px',
-          color:' hsl(0, 0%, 52%)'
+          fontSize:'16px'
         },
         information: {
-          display: 'flex',
-          fontFamily:'inherit',
+          display: 'flex'
         },
         body: {
           alignSelf: 'center',
-          fontFamily:'inherit',
+          fontWeight:'300',
           fontSize:'16px'
         },
           media: {

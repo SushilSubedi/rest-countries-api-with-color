@@ -4,7 +4,7 @@ import Routers from './Router/Router';
 import { MuiThemeProvider,createMuiTheme } from '@material-ui/core/styles';
 import ThemeContext from './ContextAPI/ThemeContextAPI/ThemeContext';
 
-const App = (props) => {
+const App = () => {
   const [theme,setTheme] = useState(false);
   const value = {theme, setTheme}
 
@@ -22,6 +22,9 @@ const App = (props) => {
       primary: {
         main:'hsl(0, 0%, 98%)'
       }
+    },
+    typography: {
+      fontFamily:'"Nunito Sans", sans-serif'
     }
   })
   const darkTheme = createMuiTheme({
@@ -32,11 +35,15 @@ const App = (props) => {
         paper:'hsl(209, 23%, 22%)'
       },
       text: {
-        primary:'hsl(0, 0%, 100%)'
+        primary:'hsl(0, 0%, 100%)',
+        secondary:'hsl(0, 0%, 52%)'
       },
       primary: {
         main:'hsl(209, 23%, 22%)'
       }
+    },
+    typography: {
+      fontFamily:'"Nunito Sans", sans-serif'
     }
   })
 

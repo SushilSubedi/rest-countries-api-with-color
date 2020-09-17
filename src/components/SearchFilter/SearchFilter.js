@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, createStyles,InputBase,fade } from '@material-ui/core';
+import { makeStyles, createStyles,InputBase,fade,Box } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete, { createFilterOptions } from '@material-ui/lab/Autocomplete';
@@ -13,13 +13,14 @@ const filterOptions = createFilterOptions({
 const SearchFilter = () => {
     const classes = useStyles();
     return(
-        <div className={classes.root}>
+        <Box className={classes.root}>
             <div className={classes.search}>
                 <div className={classes.searchIcon}>
                 <SearchIcon />
                 </div>
                 <InputBase
                 placeholder="Search for a country..."
+                color="textPrimary"
                 classes={{
                     root: classes.inputRoot,
                     input: classes.inputInput,
@@ -29,6 +30,7 @@ const SearchFilter = () => {
           </div>
           <div className={classes.filter}>
             <Autocomplete
+                color="textPrimary"
                 id="filter-demo"
                 options={top100Films}
                 getOptionLabel={(option) => option.title}
@@ -37,7 +39,7 @@ const SearchFilter = () => {
                 renderInput={(params) => <TextField {...params} label="Filter By Region" variant="outlined" />}
             />
           </div>
-        </div>
+        </Box>
     )
 }
 const top100Films = [
@@ -82,7 +84,6 @@ const useStyles = makeStyles(theme =>
             justifyContent: 'center',
           },
           inputRoot: {
-            color: 'inherit',
             height:'48px',
             width:'442px',
             fontFamily:'inherit',
