@@ -1,5 +1,5 @@
 import React,{ useState } from 'react';
-import { Box } from '@material-ui/core';
+import { Box,CssBaseline } from '@material-ui/core';
 import Routers from './Router/Router';
 import { MuiThemeProvider,createMuiTheme } from '@material-ui/core/styles';
 import ThemeContext from './ContextAPI/ThemeContextAPI/ThemeContext';
@@ -27,6 +27,8 @@ const App = () => {
       fontFamily:'"Nunito Sans", sans-serif'
     }
   })
+
+  // dark theme 
   const darkTheme = createMuiTheme({
     palette: {
       type:'dark',
@@ -47,11 +49,12 @@ const App = () => {
     }
   })
 
-  console.log("s",darkTheme);
+  console.log("s",theme);
 
   return(
     <ThemeContext.Provider value={value}>
       <MuiThemeProvider theme= {!theme ? lightTheme : darkTheme}>
+        <CssBaseline/>
         <Box>
           <Routers/>
         </Box>

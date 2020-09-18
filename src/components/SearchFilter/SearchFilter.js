@@ -20,7 +20,6 @@ const SearchFilter = () => {
                 </div>
                 <InputBase
                 placeholder="Search for a country..."
-                color="textPrimary"
                 classes={{
                     root: classes.inputRoot,
                     input: classes.inputInput,
@@ -84,11 +83,10 @@ const useStyles = makeStyles(theme =>
             justifyContent: 'center',
           },
           inputRoot: {
-            height:'48px',
+            height:'56px',
             width:'442px',
             fontFamily:'inherit',
-            fontSize:'16px',
-            border:'1px solid hsl(0, 0%, 100%)'
+            fontSize:'16px'
           },
           inputInput: {
             padding: theme.spacing(1, 1, 1, 0),
