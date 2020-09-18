@@ -17,7 +17,7 @@ const App = () => {
         paper:'hsl(0, 0%, 100%)'
       },
       text: {
-        primary:' hsl(200, 15%, 8%)',
+        primary:'hsl(200, 15%, 8%)',
         secondary:'hsl(0, 0%, 52%)'
       },
       primary: {
