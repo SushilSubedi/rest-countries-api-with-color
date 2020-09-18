@@ -1,8 +1,9 @@
 import React,{ useState } from 'react';
-import { Box,CssBaseline } from '@material-ui/core';
+import { CssBaseline } from '@material-ui/core';
 import Routers from './Router/Router';
 import { MuiThemeProvider,createMuiTheme } from '@material-ui/core/styles';
 import ThemeContext from './ContextAPI/ThemeContextAPI/ThemeContext';
+import NavigationBar from './components/NavigationBar/NavigationBar';
 
 const App = () => {
   const [theme,setTheme] = useState(false);
@@ -49,15 +50,13 @@ const App = () => {
     }
   })
 
-  console.log("s",theme);
-
   return(
     <ThemeContext.Provider value={value}>
       <MuiThemeProvider theme= {!theme ? lightTheme : darkTheme}>
         <CssBaseline/>
-        <Box>
+        <NavigationBar>
           <Routers/>
-        </Box>
+        </NavigationBar>
       </MuiThemeProvider>
     </ThemeContext.Provider>
   )

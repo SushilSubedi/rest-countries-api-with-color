@@ -1,12 +1,15 @@
-import React from 'react';
+import React,{ useContext } from 'react';
 import { makeStyles,createStyles } from '@material-ui/core';
-// import ThemeContext from '../../ContextAPI/ThemeContextAPI/ThemeContext'
+import ThemeContext from '../../ContextAPI/ThemeContextAPI/ThemeContext'
 
 const CountryDetail = () => {
     const classes = useStyles();
+    const { theme } = useContext(ThemeContext);
+    console.log(theme)
+
     return(
         <div className={classes.root}>
-                Country Details
+            
         </div>
     )
 }

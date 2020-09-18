@@ -8,7 +8,7 @@ import Brightness2SharpIcon from "@material-ui/icons/Brightness2Sharp";
 import Brightness2OutlinedIcon from "@material-ui/icons/Brightness2Outlined";
 import ThemeContext from '../../ContextAPI/ThemeContextAPI/ThemeContext';
 
-const NavigationBar = () =>{
+const NavigationBar = (props) =>{
     const classes = useStyles();
     const [darkMode, setDarkMode] = useState(false);
     const { theme,setTheme } = useContext(ThemeContext);
@@ -51,6 +51,7 @@ const NavigationBar = () =>{
                 </div>
             </Toolbar>
             </AppBar>
+            {props.children}
       </div>  
     )
 }

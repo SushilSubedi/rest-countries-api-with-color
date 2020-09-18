@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import {
     makeStyles,
     createStyles,
@@ -8,11 +9,18 @@ import {
     CardContent,
     Typography
  } from '@material-ui/core';
+// import CountryDetail from '../../CountryDetail/CountryDetail';
 
 const CountryCard = () => {
     const classes = useStyles();
+    const history = useHistory();
+
+    const CountryDetailHandler = () => {
+        history.push('/Country')
+    }
+
     return (
-        <Card className={classes.root}>
+        <Card className={classes.root} onClick={CountryDetailHandler}>
         <CardActionArea>
           <CardMedia
             className={classes.media}
