@@ -1,8 +1,9 @@
-import React from 'react';
+import React,{ useContext, useEffect } from 'react';
 import { makeStyles, createStyles,InputBase,fade,Box } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete, { createFilterOptions } from '@material-ui/lab/Autocomplete';
+import CountryContextAPI from '../../ContextAPI/CountryContextAPI/CountryContextAPI';
 
 //filter
 const filterOptions = createFilterOptions({
@@ -12,6 +13,38 @@ const filterOptions = createFilterOptions({
 
 const SearchFilter = () => {
     const classes = useStyles();
+    const { data } = useContext(CountryContextAPI);
+    const listCountry = [];
+    const region = [];
+
+    useEffect(() => {
+      if(data.length){
+        data.forEach(country =>{
+          let value = `${country.region}`.charAt(0).toUpperCase() + `${country.region}`.slice(1) ;
+          if(!listCountry[value]){
+            if(value !== ''){
+              listCountry.push(value)
+            }
+          }
+        }) 
+        getUnique(listCountry)
+      }
+
+    },[data,listCountry])
+
+
+    function getUnique(array) {
+      const uniqueArray = [];
+      for(let i=0; i < array.length; i++){
+        if(uniqueArray.indexOf(array[i]) === -1) {
+            uniqueArray.push(array[i]);
+            region.push({title:array[i], value:array[i]})
+        }
+    }
+    // return uniqueArray;
+    }
+
+
     return(
         <Box className={classes.root}>
             <div className={classes.search}>
@@ -31,7 +64,7 @@ const SearchFilter = () => {
             <Autocomplete
                 color="textPrimary"
                 id="filter-demo"
-                options={top100Films}
+                options={region}
                 getOptionLabel={(option) => option.title}
                 filterOptions={filterOptions}
                 style={{ width: 200 }}
