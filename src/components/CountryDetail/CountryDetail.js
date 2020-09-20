@@ -3,9 +3,11 @@ import { makeStyles,createStyles, Box,Button, Container, Paper, Typography } fro
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { useHistory } from 'react-router-dom'
 
-const CountryDetail = () => {
+const CountryDetail = (props) => {
     const classes = useStyles();
     const history = useHistory();
+
+    const { img,name,Native,population,Region,subRegion,captial,domain,currency,language,borderCountries } = props;
 
     const NavigationHandler = () => {
         history.push('/');
@@ -24,11 +26,10 @@ const CountryDetail = () => {
                 </Box>
                 <Box component={Paper} elevation ={0}  className={classes.box}>
                     <div className={classes.img}>
-                        <img className={classes.imgsrc} src= "" alt=""/>
-                        anskfas
+                        <img className={classes.imgsrc} src= {img} alt="Country flag"/>
                     </div>
                     <div className={classes.infor}>
-                        <Typography variant="h4" className={classes.name}>Germany</Typography>
+                        <Typography variant="h4" className={classes.name}>{name}</Typography>
                         <div className={classes.infor2}>
                             <div className={classes.location}>
                                 <div className={classes.information}>
@@ -36,7 +37,7 @@ const CountryDetail = () => {
                                         Native Name:
                                     </Typography>
                                     <Typography color="textSecondary" className={classes.body} variant="body2" component="p">
-                                        Belgie
+                                        {Native}
                                     </Typography>
                                 </div>
                                 <div className={classes.information}>
@@ -44,7 +45,7 @@ const CountryDetail = () => {
                                         Population:
                                     </Typography>
                                     <Typography color="textSecondary" className={classes.body} variant="body2" component="p">
-                                        123525
+                                        {population}
                                     </Typography>
                                 </div>
                                 <div className={classes.information}>
@@ -52,7 +53,7 @@ const CountryDetail = () => {
                                         Region:
                                     </Typography>
                                     <Typography color="textSecondary" className={classes.body} variant="body2" component="p">
-                                        123525
+                                        {Region}
                                     </Typography>
                                 </div>
                                 <div className={classes.information}>
@@ -60,7 +61,7 @@ const CountryDetail = () => {
                                         Sub Region:
                                     </Typography>
                                     <Typography color="textSecondary" className={classes.body} variant="body2" component="p">
-                                        123525
+                                        {subRegion}
                                     </Typography>
                                 </div>
                                 <div className={classes.information}>
@@ -68,7 +69,7 @@ const CountryDetail = () => {
                                         Captial:
                                     </Typography>
                                     <Typography color="textSecondary" className={classes.body} variant="body2" component="p">
-                                        123525
+                                        {captial}
                                     </Typography>
                                 </div>
                             </div>
@@ -78,7 +79,7 @@ const CountryDetail = () => {
                                             Top Level Domain:
                                         </Typography>
                                         <Typography color="textSecondary" className={classes.body} variant="body2" component="p">
-                                            .be
+                                            {domain}
                                         </Typography>
                                 </div>
                                 <div className={classes.information}>
@@ -86,7 +87,7 @@ const CountryDetail = () => {
                                             Currencies:
                                         </Typography>
                                         <Typography color="textSecondary" className={classes.body} variant="body2" component="p">
-                                            Euro
+                                            {currency}
                                         </Typography>
                                 </div>
                                 <div className={classes.information}>
@@ -94,16 +95,18 @@ const CountryDetail = () => {
                                             Language:
                                         </Typography>
                                         <Typography color="textSecondary" className={classes.body} variant="body2" component="p">
-                                            Dutch,French,German
+                                            {language}
                                         </Typography>
                                 </div>
                             </div>
                         </div>
                         <div className={classes.border}>
                             <Typography color="textPrimary" className={classes.detail}>Border Countries: </Typography>
-                            <Typography color="textSecondary" className={classes.country}>France</Typography>
-                            <Typography color="textSecondary" className={classes.country}>Germany</Typography>
-                            <Typography color="textSecondary" className={classes.country}>Netherlands</Typography>
+                                {
+                                    borderCountries.map((country,index) => (
+                                    <Typography color="textSecondary" className={classes.country}>{country}</Typography>
+                                    ))
+                                }
                         </div>
                     </div>
                 </Box>

@@ -7,11 +7,16 @@ import IconButton from "@material-ui/core/IconButton";
 import Brightness2SharpIcon from "@material-ui/icons/Brightness2Sharp";
 import Brightness2OutlinedIcon from "@material-ui/icons/Brightness2Outlined";
 import ThemeContext from '../../ContextAPI/ThemeContextAPI/ThemeContext';
+import CountryData from '../../ContextAPI/CountryContextAPI/CountryContextAPI';
+import axios from 'axios';
 
 const NavigationBar = (props) =>{
     const classes = useStyles();
     const [darkMode, setDarkMode] = useState(false);
+    // const [store,setStore] = useState([]);
+
     const { theme,setTheme } = useContext(ThemeContext);
+    const { data,setData } = useContext(CountryData);
 
     useEffect(() => {
       if(theme){
@@ -30,6 +35,23 @@ const NavigationBar = (props) =>{
         setTheme(false);
       }
     };
+
+    const getData = async() => {
+      const response = await axios.get('https://restcountries.eu/rest/v2/all');
+      setData(response.data);
+    }
+
+    useEffect(() => {
+       getData();
+    },[])
+
+    useEffect(() => {
+        // setData(store)
+        console.log("p",data)
+    },[data])
+
+
+
     return(
         <div className={classes.root}>
             <AppBar position="static" className={classes.Appbar}>

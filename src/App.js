@@ -4,11 +4,16 @@ import Routers from './Router/Router';
 import { MuiThemeProvider,createMuiTheme } from '@material-ui/core/styles';
 import ThemeContext from './ContextAPI/ThemeContextAPI/ThemeContext';
 import NavigationBar from './components/NavigationBar/NavigationBar';
+import CountryData from './ContextAPI/CountryContextAPI/CountryContextAPI';
 
 const App = () => {
   const [theme,setTheme] = useState(false);
   const value = {theme, setTheme}
+  const [data,setData] = useState([]);
+    const store = { data,setData };
 
+
+  // light theme 
   const lightTheme = createMuiTheme({
     palette: {
       type: 'light',
@@ -52,12 +57,14 @@ const App = () => {
 
   return(
     <ThemeContext.Provider value={value}>
-      <MuiThemeProvider theme= {!theme ? lightTheme : darkTheme}>
-        <CssBaseline/>
-        <NavigationBar>
-          <Routers/>
-        </NavigationBar>
-      </MuiThemeProvider>
+      <CountryData.Provider value={store}>
+        <MuiThemeProvider theme= {!theme ? lightTheme : darkTheme}>
+          <CssBaseline/>
+          <NavigationBar>
+            <Routers/>
+          </NavigationBar>
+        </MuiThemeProvider>
+      </CountryData.Provider>
     </ThemeContext.Provider>
   )
 }

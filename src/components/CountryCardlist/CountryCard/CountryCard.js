@@ -11,9 +11,11 @@ import {
  } from '@material-ui/core';
 // import CountryDetail from '../../CountryDetail/CountryDetail';
 
-const CountryCard = () => {
+const CountryCard = (props) => {
     const classes = useStyles();
     const history = useHistory();
+
+    const { country,population,Region,Capital,img } = props;
 
     const CountryDetailHandler = () => {
         history.push('/Country')
@@ -24,12 +26,12 @@ const CountryCard = () => {
         <CardActionArea>
           <CardMedia
             className={classes.media}
-            image="/static/images/cards/contemplative-reptile.jpg"
+            image={img}
             title="Contemplative Reptile"
           />
           <CardContent className={classes.CardContent}>
-              <Typography color="textPrimary" className={classes.name} gutterBottom variant="h5" component="h2">
-                Germany
+              <Typography color="textPrimary" className={classes.name} gutterBottom variant="h5" component="h4">
+                  {country}
               </Typography>
 
               <div className={classes.information}>
@@ -37,7 +39,7 @@ const CountryCard = () => {
                     Population:
                 </Typography>
                 <Typography color="textSecondary" className={classes.body} variant="body2" component="p">
-                      123525
+                      {population}
                 </Typography>
               </div>
 
@@ -46,7 +48,7 @@ const CountryCard = () => {
                     Region:
                 </Typography>
                 <Typography color="textSecondary" className={classes.body} variant="body2" component="p">
-                    Europe
+                    {Region}
                 </Typography>
               </div>
 
@@ -55,7 +57,7 @@ const CountryCard = () => {
                   Capital:
                 </Typography>
                 <Typography color="textSecondary" className={classes.body} variant="body2" component="p">
-                     Berlin
+                     {Capital}
                 </Typography>
             </div>
           </CardContent>
@@ -67,17 +69,18 @@ const useStyles = makeStyles(theme =>
     createStyles({
         root: {
             width: '300px',
-            height:'300px',
+            minHeight:'320px',
             transition: 'all 0.3s ease-out',
             "&:hover":{
               transform: 'translate(-5px,-20px)'
           }
         },
         CardContent:{
-          padding:'4% 11%'
+          padding:'4% 11%',
+          margin:'1% 0'
         },
         name: {
-          paddingBottom:'4px',
+          padding:'4% 0',
           fontWeight:'800'
         },
         detail: {
@@ -86,7 +89,8 @@ const useStyles = makeStyles(theme =>
           fontSize:'16px'
         },
         information: {
-          display: 'flex'
+          display: 'flex',
+          margin:'inherit'
         },
         body: {
           alignSelf: 'center',
@@ -94,7 +98,7 @@ const useStyles = makeStyles(theme =>
           fontSize:'16px'
         },
           media: {
-            height: 140,
+            height: 150,
           },
     }))
 
