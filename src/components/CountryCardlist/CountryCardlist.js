@@ -18,15 +18,22 @@ const CountryCardlist = ()=> {
         }
     },[data])
 
-    useEffect(() => {
-        console.log("keyword",keyword);
-    },[keyword])
+    // useEffect(() => {
+    //     data.forEach(item => {
+    //         const index = data.findIndex(items => items.name === item.name );
+    //         if(data[index].name.includes(keyword)){
+    //             setCardData()
+    //         }
+    //     })
+    // },[keyword])
 
     return (
         <Grid className={classes.root} item md={12}>
             <Grid container spacing={5}>
                 {
                     cardData.map((item,index) => {
+                        const i = cardData.findIndex(items => items.name === item.name );
+                        if(cardData[i].name.includes(keyword)){
                        return(
                         <Grid key={index} item md={3}> 
                             <CountryCard
@@ -38,6 +45,7 @@ const CountryCardlist = ()=> {
                             />                   
                         </Grid>
                        )
+                        }
                     })
                     
                 }
