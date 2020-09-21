@@ -3,12 +3,14 @@ import CountryCard from './CountryCard/CountryCard';
 import { Grid,makeStyles,createStyles } from '@material-ui/core';
 import CountryData from '../../ContextAPI/CountryContextAPI/CountryContextAPI';
 import SearchContextAPI from '../../ContextAPI/SearchContextAPI/SearchContextAPI';
+import FilterContextAPI from '../../ContextAPI/FilterContextAPI/FilterContextAPI';
 
 const CountryCardlist = ()=> {
     const classes = useStyles();
 
     const { keyword } = useContext(SearchContextAPI);
     const { data  } = useContext(CountryData);
+    const { region  } = useContext(FilterContextAPI);
 
     const [cardData,setCardData] = useState([]);
 
@@ -26,6 +28,18 @@ const CountryCardlist = ()=> {
     //         }
     //     })
     // },[keyword])
+
+    useEffect(() => {
+        // console.log(region,"o")
+        if(region !== undefined){
+            if(region?.value !== null || region?.value !== undefined){
+                const filterData = data.filter(item => item.region === region.value);
+                setCardData(filterData);
+            }   
+        }else {
+            setCardData(data)
+        }
+    },[region])
 
     return (
         <Grid className={classes.root} item md={12}>

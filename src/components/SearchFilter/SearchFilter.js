@@ -2,25 +2,29 @@ import React,{ useContext, useEffect } from 'react';
 import { makeStyles, createStyles,InputBase,fade,Box } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import TextField from '@material-ui/core/TextField';
-import Autocomplete, { createFilterOptions } from '@material-ui/lab/Autocomplete';
+import Autocomplete from '@material-ui/lab/Autocomplete';
 import CountryContextAPI from '../../ContextAPI/CountryContextAPI/CountryContextAPI';
 import SearchContextAPI from '../../ContextAPI/SearchContextAPI/SearchContextAPI';
+import FilterContextAPI from '../../ContextAPI/FilterContextAPI/FilterContextAPI';
 
-//filter
-const filterOptions = createFilterOptions({
-    matchFrom: 'start',
-    stringify: (option) => option.title,
-  });
+// //filter
+// const filterOptions = createFilterOptions({
+//     matchFrom: 'start',
+//     stringify: (option) => option.title,
+//   });
 
-const SearchFilter = (props) => {
+const SearchFilter = () => {
 
     const classes = useStyles();
 
+    // const [filter,setFilter] = useState('');
+
     const { data } = useContext(CountryContextAPI);
-    const { keyword,setKeyword } = useContext(SearchContextAPI);
+    const { setKeyword } = useContext(SearchContextAPI);
+    const { setRegion } = useContext(FilterContextAPI);
 
     const listCountry = [];
-    const region = [];
+    const Region = [];
 
 
     useEffect(() => {
@@ -44,20 +48,21 @@ const SearchFilter = (props) => {
       for(let i=0; i < array.length; i++){
         if(uniqueArray.indexOf(array[i]) === -1) {
             uniqueArray.push(array[i]);
-            region.push({title:array[i], value:array[i]})
+            Region.push({title:array[i], value:array[i]})
         }
     }
     // return uniqueArray;
     }
 
     function handleSearch(e) {
-      const i = "ops"
       setKeyword(e.target.value);
     }
 
-    useEffect(() => {
-      console.log(keyword,"(0")
-    },[keyword])
+    function selectRegionHandler (e) {
+      setRegion(Region[e.target.value]);
+      // console.lo;
+    } 
+
 
     return(
         <Box className={classes.root}>
@@ -79,9 +84,10 @@ const SearchFilter = (props) => {
             <Autocomplete
                 color="textPrimary"
                 id="filter-demo"
-                options={region}
+                options={Region}
                 getOptionLabel={(option) => option.title}
-                filterOptions={filterOptions}
+                // filterOptions={filterOptions}
+                onChange={selectRegionHandler}
                 style={{ width: 200 }}
                 renderInput={(params) => <TextField {...params} label="Filter By Region" variant="outlined" />}
             />
