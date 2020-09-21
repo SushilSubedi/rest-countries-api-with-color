@@ -9,8 +9,10 @@ import CountryData from './ContextAPI/CountryContextAPI/CountryContextAPI';
 const App = () => {
   const [theme,setTheme] = useState(false);
   const value = {theme, setTheme}
+
   const [data,setData] = useState([]);
     const store = { data,setData };
+
 
 
   // light theme 
@@ -59,11 +61,11 @@ const App = () => {
     <ThemeContext.Provider value={value}>
       <CountryData.Provider value={store}>
         <MuiThemeProvider theme= {!theme ? lightTheme : darkTheme}>
-          <CssBaseline/>
-          <NavigationBar>
-            <Routers/>
-          </NavigationBar>
-        </MuiThemeProvider>
+            <CssBaseline/>
+            <NavigationBar>
+              <Routers/>
+            </NavigationBar>
+          </MuiThemeProvider>
       </CountryData.Provider>
     </ThemeContext.Provider>
   )

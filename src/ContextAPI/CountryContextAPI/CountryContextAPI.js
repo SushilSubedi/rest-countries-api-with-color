@@ -1,7 +1,7 @@
 import React from 'react';
 
 const CountryContextAPI = React.createContext({
-    data: null,
+    data: [],
     setData: () => {},
 })
 

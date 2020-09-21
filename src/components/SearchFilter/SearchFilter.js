@@ -4,6 +4,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete, { createFilterOptions } from '@material-ui/lab/Autocomplete';
 import CountryContextAPI from '../../ContextAPI/CountryContextAPI/CountryContextAPI';
+import SearchContextAPI from '../../ContextAPI/SearchContextAPI/SearchContextAPI';
 
 //filter
 const filterOptions = createFilterOptions({
@@ -11,11 +12,16 @@ const filterOptions = createFilterOptions({
     stringify: (option) => option.title,
   });
 
-const SearchFilter = () => {
+const SearchFilter = (props) => {
+
     const classes = useStyles();
+
     const { data } = useContext(CountryContextAPI);
+    const { keyword,setKeyword } = useContext(SearchContextAPI);
+
     const listCountry = [];
     const region = [];
+
 
     useEffect(() => {
       if(data.length){
@@ -44,6 +50,14 @@ const SearchFilter = () => {
     // return uniqueArray;
     }
 
+    function handleSearch(e) {
+      const i = "ops"
+      setKeyword(e.target.value);
+    }
+
+    useEffect(() => {
+      console.log(keyword,"(0")
+    },[keyword])
 
     return(
         <Box className={classes.root}>
@@ -52,6 +66,7 @@ const SearchFilter = () => {
                 <SearchIcon />
                 </div>
                 <InputBase
+                  onChange={handleSearch}
                 placeholder="Search for a country..."
                 classes={{
                     root: classes.inputRoot,
@@ -74,13 +89,6 @@ const SearchFilter = () => {
         </Box>
     )
 }
-const top100Films = [
-    { title: 'Africa', value:'Africa' },
-    { title: 'Asia', value:'Asia' },
-    { title: 'Australia', value:'Australia' },
-    { title: 'Europe', value:'Europe' },
-  
-  ];
 
 const useStyles = makeStyles(theme =>
     createStyles({
