@@ -18,19 +18,9 @@ const CountryCardlist = ()=> {
         if(data.length){
             setCardData(data);
         }
-    },[data])
-
-    // useEffect(() => {
-    //     data.forEach(item => {
-    //         const index = data.findIndex(items => items.name === item.name );
-    //         if(data[index].name.includes(keyword)){
-    //             setCardData()
-    //         }
-    //     })
-    // },[keyword])
+    },[cardData,data])
 
     useEffect(() => {
-        // console.log(region,"o")
         if(region !== undefined){
             if(region?.value !== null || region?.value !== undefined){
                 const filterData = data.filter(item => item.region === region.value);
