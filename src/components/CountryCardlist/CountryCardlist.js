@@ -60,9 +60,7 @@ const CountryCardlist = ()=> {
 const useStyles = makeStyles(theme =>
     createStyles({
         root: {
-            paddingTop: "1%",
-            paddingLeft: "2%",
-            paddingRight: "2%"
+            padding:'1% 2% 0 2%'
         }
     }))
 

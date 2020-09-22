@@ -50,7 +50,7 @@ const NavigationBar = (props) =>{
     return(
         <div className={classes.root}>
             <AppBar position="static" className={classes.Appbar}>
-            <Toolbar>
+            <Toolbar className={classes.toolbar}>
                 <Typography variant="h5" className={classes.title}>
                   Where in the world?
                 </Typography>
@@ -76,7 +76,15 @@ const NavigationBar = (props) =>{
 const useStyles = makeStyles(theme => 
     createStyles({
         Appbar: {
-             padding:'4px 4%'
+             padding:'4px 4%',
+             [theme.breakpoints.up('sm')]: {
+               padding:'4px 0'
+             }
+        },
+        toolbar: {
+          [theme.breakpoints.up('sm')]: {
+            padding:'1% 8px'
+          }
         },
         typo2: {
           fontSize:'14px',
@@ -94,7 +102,12 @@ const useStyles = makeStyles(theme =>
           title: {
             flexGrow: 1,
             fontSize:'18px',
-            fontWeight:'800'
+            fontWeight:'800',
+            [theme.breakpoints.up('sm')]: {
+              fontSize:'16px',
+              flexGrow: 1,
+              fontWeight:'800',
+            }
           },
           icon: {
             width: "140px"

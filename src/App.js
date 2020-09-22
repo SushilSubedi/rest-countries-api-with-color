@@ -14,7 +14,6 @@ const App = () => {
     const store = { data,setData };
 
 
-
   // light theme 
   const lightTheme = createMuiTheme({
     palette: {
@@ -33,6 +32,12 @@ const App = () => {
     },
     typography: {
       fontFamily:'"Nunito Sans", sans-serif'
+    },
+    breakpoints : {
+      values: {
+        xs: 0,
+        sm: 375
+      }
     }
   })
 
@@ -46,7 +51,7 @@ const App = () => {
       },
       text: {
         primary:'hsl(0, 0%, 100%)',
-        secondary:'hsl(0, 0%, 52%)'
+        secondary:' hsl(0, 0%, 100%)'
       },
       primary: {
         main:'hsl(209, 23%, 22%)'
@@ -54,6 +59,12 @@ const App = () => {
     },
     typography: {
       fontFamily:'"Nunito Sans", sans-serif'
+    },
+    breakpoints : {
+      values: {
+        xs: 0,
+        sm: 375
+      }
     }
   })
 

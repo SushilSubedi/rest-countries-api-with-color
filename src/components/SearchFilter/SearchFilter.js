@@ -101,10 +101,11 @@ const useStyles = makeStyles(theme =>
         root: {
             display:'flex',
             justifyContent:'space-between',
-            paddingTop:'2%',
-            paddingBottom:'2%',
-            paddingLeft:'3%',
-            paddingRight:'8%'
+            padding: '2% 3% 2% 8%',
+            [theme.breakpoints.up('sm')]: {
+              flexDirection:'column',
+                margin:'3% 0'
+            }
         },
         search: {
             position: 'relative',
@@ -116,9 +117,14 @@ const useStyles = makeStyles(theme =>
             marginLeft: 0,
             width: '100%',
             [theme.breakpoints.up('sm')]: {
-              marginLeft: theme.spacing(1),
-              width: 'auto',
+              margin:'inherit',
+
             },
+          },
+          filter: {
+            [theme.breakpoints.up('sm')]: {
+              margin:'inherit'
+            }
           },
           searchIcon: {
             padding: theme.spacing(0, 2),
