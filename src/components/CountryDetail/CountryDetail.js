@@ -9,8 +9,6 @@ const CountryDetail = (props) => {
     const history = useHistory();
     const [country,setCountry] = useState({});
 
-    // const { img,name,Native,population,Region,subRegion,captial,domain,currency,language,borderCountries } = props;
-
     const { data } = useContext(CountryContextAPI);
      const { CountryID } = useParams();
 
@@ -154,7 +152,6 @@ const useStyles = makeStyles(theme =>
             height:'300px'
         },
         button: {
-            // border:'1px solid hsl(0, 0%, 52%)',
             textTransform:'initial',
             fontSize:'14px',
             width:'100%'

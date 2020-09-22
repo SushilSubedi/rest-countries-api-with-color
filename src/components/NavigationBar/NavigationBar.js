@@ -42,15 +42,10 @@ const NavigationBar = (props) =>{
     }
 
     useEffect(() => {
-       getData();
+      if(data.length === 0){
+        getData();
+      }
     },[])
-
-    useEffect(() => {
-        // setData(store)
-        console.log("p",data)
-    },[data])
-
-
 
     return(
         <div className={classes.root}>
