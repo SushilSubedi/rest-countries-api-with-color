@@ -18,7 +18,7 @@ const CountryCard = (props) => {
     const { country,population,Region,Capital,img } = props;
 
     const CountryDetailHandler = () => {
-        history.push('/Country')
+        history.push(`/${country}`)
     }
 
     return (
