@@ -16,16 +16,12 @@ import FilterContextAPI from '../../ContextAPI/FilterContextAPI/FilterContextAPI
 const SearchFilter = () => {
 
     const classes = useStyles();
-
-    // const [filter,setFilter] = useState('');
-
     const { data } = useContext(CountryContextAPI);
     const { setKeyword } = useContext(SearchContextAPI);
     const { setRegion } = useContext(FilterContextAPI);
 
     const listCountry = [];
     const Region = [];
-
 
     useEffect(() => {
       if(data.length){
@@ -37,22 +33,21 @@ const SearchFilter = () => {
             }
           }
         }) 
+        function getUnique(array) {
+          const uniqueArray = [];
+          for(let i=0; i < array.length; i++){
+            if(uniqueArray.indexOf(array[i]) === -1) {
+                uniqueArray.push(array[i]);
+                Region.push({title:array[i], value:array[i]})
+            }
+          }
+        }
         getUnique(listCountry)
       }
 
-    },[data,listCountry])
+    },[data,listCountry,Region])
 
 
-    function getUnique(array) {
-      const uniqueArray = [];
-      for(let i=0; i < array.length; i++){
-        if(uniqueArray.indexOf(array[i]) === -1) {
-            uniqueArray.push(array[i]);
-            Region.push({title:array[i], value:array[i]})
-        }
-    }
-    // return uniqueArray;
-    }
 
     function handleSearch(e) {
       setKeyword(e.target.value);
@@ -60,7 +55,6 @@ const SearchFilter = () => {
 
     function selectRegionHandler (e) {
       setRegion(Region[e.target.value]);
-      // console.lo;
     } 
 
 

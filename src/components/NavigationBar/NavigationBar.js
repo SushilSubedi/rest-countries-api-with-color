@@ -36,16 +36,15 @@ const NavigationBar = (props) =>{
       }
     };
 
-    const getData = async() => {
-      const response = await axios.get('https://restcountries.eu/rest/v2/all');
-      setData(response.data);
-    }
-
     useEffect(() => {
       if(data.length === 0){
+        const getData = async() => {
+          const response = await axios.get('https://restcountries.eu/rest/v2/all');
+          setData(response.data);
+        }
         getData();
       }
-    },[])
+    },[data,setData])
 
     return(
         <div className={classes.root}>

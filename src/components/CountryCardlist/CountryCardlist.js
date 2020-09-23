@@ -29,7 +29,7 @@ const CountryCardlist = ()=> {
         }else {
             setCardData(data)
         }
-    },[region])
+    },[region,data])
     
 
     return (
@@ -50,7 +50,7 @@ const CountryCardlist = ()=> {
                             />                   
                         </Grid>
                        )
-                        }
+                        }else return null;
                     })
                     
                 }
