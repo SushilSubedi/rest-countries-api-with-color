@@ -95,7 +95,7 @@ const useStyles = makeStyles(theme =>
         root: {
             display:'flex',
             justifyContent:'space-between',
-            padding: '2% 3% 2% 8%',
+            padding: '2% 6% 2% 5%',
             [theme.breakpoints.down('sm')]: {
               flexDirection:'column',
                 margin:'3% 0'
