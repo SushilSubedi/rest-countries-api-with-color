@@ -102,7 +102,7 @@ const useStyles = makeStyles(theme =>
             display:'flex',
             justifyContent:'space-between',
             padding: '2% 3% 2% 8%',
-            [theme.breakpoints.up('sm')]: {
+            [theme.breakpoints.down('sm')]: {
               flexDirection:'column',
                 margin:'3% 0'
             }
@@ -115,14 +115,14 @@ const useStyles = makeStyles(theme =>
               backgroundColor: fade(theme.palette.common.white, 0.25),
             },
             marginLeft: 0,
-            width: '100%',
-            [theme.breakpoints.up('sm')]: {
+            width: '442px',
+            [theme.breakpoints.down('sm')]: {
               margin:'inherit',
 
             },
           },
           filter: {
-            [theme.breakpoints.up('sm')]: {
+            [theme.breakpoints.down('sm')]: {
               margin:'inherit'
             }
           },
@@ -149,7 +149,7 @@ const useStyles = makeStyles(theme =>
             width: '100%',
             fontFamily:'inherit',
             fontSize:'16px',
-            [theme.breakpoints.up('sm')]: {
+            [theme.breakpoints.down('sm')]: {
               width: '12ch',
               '&:focus': {
                 width: '26ch',

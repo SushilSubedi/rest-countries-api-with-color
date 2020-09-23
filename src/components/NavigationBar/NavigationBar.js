@@ -77,12 +77,12 @@ const useStyles = makeStyles(theme =>
     createStyles({
         Appbar: {
              padding:'4px 4%',
-             [theme.breakpoints.up('sm')]: {
+             [theme.breakpoints.down('sm')]: {
                padding:'4px 0'
              }
         },
         toolbar: {
-          [theme.breakpoints.up('sm')]: {
+          [theme.breakpoints.down('sm')]: {
             padding:'1% 8px'
           }
         },
@@ -103,7 +103,7 @@ const useStyles = makeStyles(theme =>
             flexGrow: 1,
             fontSize:'18px',
             fontWeight:'800',
-            [theme.breakpoints.up('sm')]: {
+            [theme.breakpoints.down('sm')]: {
               fontSize:'16px',
               flexGrow: 1,
               fontWeight:'800',

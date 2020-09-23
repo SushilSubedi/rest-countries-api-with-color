@@ -30,13 +30,14 @@ const CountryCardlist = ()=> {
             setCardData(data)
         }
     },[region])
+    
 
     return (
         <Grid className={classes.root} item md={12}>
-            <Grid container spacing={5}>
+            <Grid container spacing={4}>
                 {
                     cardData.map((item,index) => {
-                        const i = cardData.findIndex(items => items.name === item.name );
+                        let i = cardData.findIndex(items => items.name === item.name );
                         if(cardData[i].name.includes(keyword)){
                        return(
                         <Grid key={index} item md={3}> 
@@ -60,7 +61,10 @@ const CountryCardlist = ()=> {
 const useStyles = makeStyles(theme =>
     createStyles({
         root: {
-            padding:'1% 2% 0 2%'
+            padding:'1% 2% 0 2%',
+            [theme.breakpoints.down('sm')]: {
+                padding:'1% 2% 0 8%',
+            }
         }
     }))
 
