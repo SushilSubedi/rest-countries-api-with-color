@@ -36,7 +36,8 @@ const App = () => {
     breakpoints : {
       values: {
         xs: 0,
-        sm: 375
+        sm: 375,
+        md: 600
       }
     }
   })
@@ -63,7 +64,8 @@ const App = () => {
     breakpoints : {
       values: {
         xs: 0,
-        sm: 375
+        sm: 375,
+        md:600
       }
     }
   })

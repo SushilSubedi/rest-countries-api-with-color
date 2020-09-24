@@ -80,6 +80,7 @@ const SearchFilter = () => {
                 id="filter-demo"
                 options={Region}
                 getOptionLabel={(option) => option.title}
+                className={classes.Autocomplete}
                 // filterOptions={filterOptions}
                 onChange={selectRegionHandler}
                 style={{ width: 200 }}
@@ -96,10 +97,15 @@ const useStyles = makeStyles(theme =>
             display:'flex',
             justifyContent:'space-between',
             padding: '2% 6% 2% 5%',
-            [theme.breakpoints.down('sm')]: {
+            [theme.breakpoints.between('xs','sm')]: {
               flexDirection:'column',
                 margin:'3% 0'
             }
+        },
+        Autocomplete: {
+          [theme.breakpoints.between('xs','sm')]: {
+            fontSize:'14px'
+          }
         },
         search: {
             position: 'relative',
@@ -110,13 +116,13 @@ const useStyles = makeStyles(theme =>
             },
             marginLeft: 0,
             width: '442px',
-            [theme.breakpoints.down('sm')]: {
+            [theme.breakpoints.between('xs','sm')]: {
               margin:'inherit',
-
+              width:'336px'
             },
           },
           filter: {
-            [theme.breakpoints.down('sm')]: {
+            [theme.breakpoints.between('xs','sm')]: {
               margin:'inherit'
             }
           },
@@ -133,7 +139,10 @@ const useStyles = makeStyles(theme =>
             height:'56px',
             width:'442px',
             fontFamily:'inherit',
-            fontSize:'16px'
+            fontSize:'16px',
+            [theme.breakpoints.between('xs','sm')]: {
+              width:'100%'
+            }
           },
           inputInput: {
             padding: theme.spacing(1, 1, 1, 0),
@@ -141,10 +150,11 @@ const useStyles = makeStyles(theme =>
             paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
             transition: theme.transitions.create('width'),
             width: '100%',
-            fontFamily:'inherit',
+            // fontFamily:'inherit',
             fontSize:'16px',
-            [theme.breakpoints.down('sm')]: {
+            [theme.breakpoints.between('xs','sm')]: {
               width: '12ch',
+              fontSize:'14px',
               '&:focus': {
                 width: '26ch',
               },

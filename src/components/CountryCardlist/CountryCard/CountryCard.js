@@ -70,6 +70,10 @@ const useStyles = makeStyles(theme =>
         root: {
             width: '300px',
             minHeight:'320px',
+            [theme.breakpoints.between('xs','sm')]: {
+              width:'280px',
+              minHeight:'280px'
+            },
             transition: 'all 0.3s ease-out',
             "&:hover":{
               transform: 'translate(-5px,-20px)'
@@ -81,21 +85,33 @@ const useStyles = makeStyles(theme =>
         },
         name: {
           padding:'4% 0',
-          fontWeight:'800'
+          fontWeight:'800',
+          [theme.breakpoints.between('xs','sm')]: {
+            fontSize:'16px'
+          }
         },
         detail: {
           fontWeight:'600',
           paddingRight:'4px',
-          fontSize:'16px'
+          fontSize:'16px',
+          [theme.breakpoints.between('xs','sm')]: {
+          fontSize:'14px' 
+          }
         },
         information: {
           display: 'flex',
-          margin:'inherit'
+          margin:'inherit',
+          [theme.breakpoints.between('xs','sm')]: {
+            fontSize:'14px' 
+          }
         },
         body: {
           alignSelf: 'center',
           fontWeight:'300',
-          fontSize:'16px'
+          fontSize:'16px',
+          [theme.breakpoints.between('xs','sm')]: {
+            fontSize:'14px' 
+          }
         },
           media: {
             height: 150,

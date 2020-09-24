@@ -76,19 +76,19 @@ const useStyles = makeStyles(theme =>
     createStyles({
         Appbar: {
              padding:'4px 4%',
-             [theme.breakpoints.down('sm')]: {
+             [theme.breakpoints.between('xs','sm')]: {
                padding:'4px 0'
              }
         },
         toolbar: {
-          [theme.breakpoints.down('sm')]: {
-            padding:'1% 8px'
+          [theme.breakpoints.between('xs','sm')]: {
+            padding:'1% 10px'
           }
         },
         typo2: {
-          fontSize:'14px',
+          fontSize:'16px',
           fontWeight:'600',
-          marginLeft:'2px'
+          marginLeft:'2px',
         },
         SingleIcon: {
           transform: 'rotateZ(140deg)',
@@ -100,9 +100,9 @@ const useStyles = makeStyles(theme =>
           },
           title: {
             flexGrow: 1,
-            fontSize:'18px',
+            fontSize:'24px',
             fontWeight:'800',
-            [theme.breakpoints.down('sm')]: {
+            [theme.breakpoints.between('xs','sm')]: {
               fontSize:'16px',
               flexGrow: 1,
               fontWeight:'800',

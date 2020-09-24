@@ -24,7 +24,7 @@ const CountryDetail = (props) => {
 
     return(
         <div className={classes.root}>
-            <Container>
+            <Container className={classes.container}>
                 <Box padding="2% 1%">
                     <Paper elevation={1} style={{width:'110px', height:'25'}}>
                         <Button className={classes.button} onClick={NavigationHandler}>
@@ -119,11 +119,15 @@ const CountryDetail = (props) => {
                         </div>
                         <div className={classes.border}>
                             <Typography color="textPrimary" className={classes.detail}>Border Countries: </Typography>
-                                 {
+                            <div className={classes.borders}>
+                                {
                                     country?.borders?.map((country,index) => (
-                                    <Typography key={index} color="textSecondary" className={classes.country}>{country}</Typography>
+                                        <Paper elevation={0} key={index}  className={classes.country}>
+                                            <Typography color="textSecondary" className={classes.country}>{country}</Typography>
+                                        </Paper>
                                     ))
                                 } 
+                            </div>
                         </div>
                     </div>
                 </Box>
@@ -134,22 +138,50 @@ const CountryDetail = (props) => {
 const useStyles = makeStyles(theme => 
     createStyles({
         root: {
-             padding:'2% 4%'
+             padding:'2% 4%',
+        },
+        container: {
+            [theme.breakpoints.between('xs','sm')]: {
+                margin:'5% 0'
+            }
+        },
+        backButton: {
+            [theme.breakpoints.between('xs','sm')]: {
+                margin:'inherit'
+            }
         },
         box:{
-            display:'flex'
+            display:'flex',
+            [theme.breakpoints.between('xs','sm')]: {
+                display:'grid',
+                margin:'inherit'
+            }
         },
         img:{
-            flex: 1
+            flex: 1,
+            // [theme.breakpoints.between('xs','sm')]: {
+            //     width:'280px',
+            //     height:'280px'
+            // }
+            [theme.breakpoints.between('xs','sm')]: {
+                margin:'inherit'
+            }
         },
         infor: {
             flex: 2,
             marginLeft:'6%',
-            marginRight:'2%'
+            marginRight:'2%',
+            [theme.breakpoints.between('xs','sm')]: {
+                margin:'inherit'
+            }
         },
         imgsrc: {
             width:'400px',
-            height:'300px'
+            height:'300px',
+            [theme.breakpoints.between('xs','sm')]: {
+                width:'300px',
+                height:'236px'
+            }
         },
         button: {
             textTransform:'initial',
@@ -158,30 +190,58 @@ const useStyles = makeStyles(theme =>
         },
         infor2: {
             display:'grid',
-            gridTemplateColumns:'repeat(2,1fr)'
+            gridTemplateColumns:'repeat(2,1fr)',
+            [theme.breakpoints.between('xs','sm')]: {
+                display:'grid',
+                gridTemplateColumns: '1fr'   
+            }
         },
         name: {
             padding: '3% 0',
-            fontWeight:'800'
+            fontWeight:'800',
+            [theme.breakpoints.between('xs','sm')]: {
+                fontSize:'16px',
+                fontWeight:'800',
+
+            }
           },
           detail: {
             fontWeight:'600',
             paddingRight:'4px',
-            fontSize:'16px'
+            fontSize:'16px',
+            [theme.breakpoints.between('xs','sm')]: {
+                fontSize:'14px'
+            }
           },
           information: {
             display: 'flex',
-            margin:'inherit'
+            margin:'inherit',
+            [theme.breakpoints.between('xs','sm')]: {
+                fontSize:'14px' 
+              }
           },
           body: {
             alignSelf: 'center',
             fontWeight:'300',
             fontSize:'16px',
-            marginLeft:'4px'
+            marginLeft:'4px',
+            [theme.breakpoints.between('xs','sm')]: {
+                fontSize:'14px' 
+              }
           },
           border:  {
-              display:'flex',
-            padding:'2% 1%'
+            display:'flex',
+            padding:'2% 1%',
+            [theme.breakpoints.between('xs','sm')]: {
+                padding:'1% 1%',
+                display:'grid' 
+              }
+          },
+          borders: {
+            display:'flex',
+            [theme.breakpoints.between('xs','sm')]: {
+                marginTop:'3%'
+              }
           },
           country: {
               marginLeft:"5%"

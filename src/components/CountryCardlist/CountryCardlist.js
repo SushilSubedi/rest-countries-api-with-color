@@ -62,8 +62,8 @@ const useStyles = makeStyles(theme =>
     createStyles({
         root: {
             padding:'1% 5% 0 4%',
-            [theme.breakpoints.down('sm')]: {
-                padding:'1% 2% 0 8%',
+            [theme.breakpoints.between('xs','sm')]: {
+                padding:'1% 2% 0 0%',
             }
         },
         container: {
