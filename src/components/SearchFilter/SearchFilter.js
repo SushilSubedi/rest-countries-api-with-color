@@ -110,10 +110,11 @@ const useStyles = makeStyles(theme =>
         root: {
             display:'flex',
             justifyContent:'space-between',
-            padding: '2% 6% 2% 5%',
+            padding: '7% 6% 2% 5%',
             [theme.breakpoints.between('xs','sm')]: {
               flexDirection:'column',
-                margin:'3% 0'
+                margin:'10% 0 0 0',
+                padding:'2% 0'
             }
         },
         Autocomplete: {
