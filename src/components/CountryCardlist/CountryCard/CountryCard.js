@@ -15,8 +15,10 @@ const CountryCard = (props) => {
     const classes = useStyles();
     const history = useHistory();
 
+    // props pass to countryCardlist for country data
     const { country,population,Region,Capital,img } = props;
 
+    // navigate to total details of country
     const CountryDetailHandler = () => {
         history.push(`/${country}`)
     }
@@ -65,6 +67,8 @@ const CountryCard = (props) => {
       </Card>
     )
 }
+
+// style for countrycard
 const useStyles = makeStyles(theme =>
     createStyles({
         root: {

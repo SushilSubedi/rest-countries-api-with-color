@@ -7,9 +7,11 @@ import NavigationBar from './components/NavigationBar/NavigationBar';
 import CountryData from './ContextAPI/CountryContextAPI/CountryContextAPI';
 
 const App = () => {
+  // theme value
   const [theme,setTheme] = useState(false);
   const value = {theme, setTheme}
 
+  // countries data value
   const [data,setData] = useState([]);
     const store = { data,setData };
 
@@ -71,6 +73,7 @@ const App = () => {
   })
 
   return(
+    // ContextAPI value is passed to childern component
     <ThemeContext.Provider value={value}>
       <CountryData.Provider value={store}>
         <MuiThemeProvider theme= {!theme ? lightTheme : darkTheme}>
