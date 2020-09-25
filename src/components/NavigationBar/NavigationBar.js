@@ -51,7 +51,7 @@ const NavigationBar = (props) =>{
 
     return(
         <div className={classes.root}>
-            <AppBar position="static" className={classes.Appbar}>
+            <AppBar position="fixed" className={classes.Appbar}>
             <Toolbar className={classes.toolbar}>
                 <Typography variant="h5" className={classes.title}>
                   Where in the world?
