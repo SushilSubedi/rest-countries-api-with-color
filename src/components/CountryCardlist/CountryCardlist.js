@@ -1,24 +1,59 @@
-import React from 'react';
+import React, { useContext, useEffect, useState} from 'react';
 import CountryCard from './CountryCard/CountryCard';
 import { Grid,makeStyles,createStyles } from '@material-ui/core';
+import CountryData from '../../ContextAPI/CountryContextAPI/CountryContextAPI';
+import SearchContextAPI from '../../ContextAPI/SearchContextAPI/SearchContextAPI';
+import FilterContextAPI from '../../ContextAPI/FilterContextAPI/FilterContextAPI';
 
 const CountryCardlist = ()=> {
     const classes = useStyles();
+
+    const { keyword } = useContext(SearchContextAPI);
+    const { data  } = useContext(CountryData);
+    const { region  } = useContext(FilterContextAPI);
+
+    const [cardData,setCardData] = useState([]);
+
+    useEffect(() => {
+        if(data.length){
+            setCardData(data);
+        }
+    },[data])
+
+    useEffect(() => {
+        if(region !== undefined){
+            if(region !== ''){
+                const filterData = data.filter(item => item.region === region);
+                setCardData(filterData);
+            }else if(region === '') {
+                setCardData(data);
+            }   
+        }
+    },[region,data])
+    
+
     return (
-        <Grid className={classes.root} item md={12}>
-            <Grid container>
-                <Grid item md={3}> 
-                    <CountryCard/>                   
-                </Grid>
-                <Grid item md={3}>
-                    <CountryCard/>
-                </Grid>
-                <Grid item md={3}>
-                    <CountryCard/>
-                </Grid>
-                <Grid item md={3}>
-                    <CountryCard/>
-                </Grid>
+        <Grid  item md={12} className={classes.root}>
+            <Grid className={classes.container} container spacing={9}>
+                {
+                    cardData.map((item,index) => {
+                        let i = cardData.findIndex(items => items.name === item.name );
+                        if(cardData[i].name.includes(keyword)){
+                       return(
+                        <Grid item md={3} key={index}> 
+                            <CountryCard
+                                country={item.name}
+                                population={item.population}
+                                Region={item.region}
+                                Capital={item.capital}
+                                img={item.flag}
+                            />                   
+                        </Grid>
+                       )
+                        }else return null;
+                    })
+                    
+                }
             </Grid>
         </Grid>
     )
@@ -26,9 +61,14 @@ const CountryCardlist = ()=> {
 const useStyles = makeStyles(theme =>
     createStyles({
         root: {
-            paddingTop: "1%",
-            paddingLeft: "2%",
-            paddingRight: "2%"
+            padding:'1% 5% 0 4%',
+            [theme.breakpoints.between('xs','sm')]: {
+                padding:'1% 2% 0 0%',
+            }
+        },
+        container: {
+            display:'flex',
+            justifyContent:'space-around'
         }
     }))
 
