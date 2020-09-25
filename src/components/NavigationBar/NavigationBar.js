@@ -14,9 +14,11 @@ const NavigationBar = (props) =>{
     const classes = useStyles();
     const [darkMode, setDarkMode] = useState(false);
 
+    //Context api value for country data and themeContext to reset the data or theme
     const { theme,setTheme } = useContext(ThemeContext);
     const { data,setData } = useContext(CountryData);
 
+    // change the color mode of website
     useEffect(() => {
       if(theme){
         setDarkMode(true);
@@ -25,6 +27,7 @@ const NavigationBar = (props) =>{
       }
     },[theme])
 
+    // change the mode of website
     const handleChangeColor = () => {
       if (!darkMode) {
         setDarkMode(true);
@@ -35,6 +38,7 @@ const NavigationBar = (props) =>{
       }
     };
 
+    //get request api for countries data
     useEffect(() => {
       if(data.length === 0){
         const getData = async() => {
@@ -70,7 +74,7 @@ const NavigationBar = (props) =>{
       </div>  
     )
 }
-
+// style for navigation
 const useStyles = makeStyles(theme => 
     createStyles({
         Appbar: {

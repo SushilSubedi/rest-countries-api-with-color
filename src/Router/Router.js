@@ -8,6 +8,7 @@ const Routers = () => {
         <Router>
             <Switch>
                 <Route path="/" exact component={Home}/>
+                {/* route to specific country */}
                 <Route path="/:CountryID"  component={CountryDetail}/>
                 <Redirect to="/"/>
             </Switch>

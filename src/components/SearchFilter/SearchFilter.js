@@ -17,13 +17,19 @@ const filterOptions = createFilterOptions({
 const SearchFilter = () => {
 
     const classes = useStyles();
+    // context API for countries data to pass to different card
     const { data } = useContext(CountryContextAPI);
+    // context API for search value to search the country
     const { setKeyword } = useContext(SearchContextAPI);
+        // context API for list the region select by user
+
     const { setRegion } = useContext(FilterContextAPI);
 
+    // store data in array
     const listCountry = [];
     const region = [];
 
+    // store data in listCountry and region
     useEffect(() => {
       if(data.length){
         data.forEach(country =>{
@@ -50,10 +56,12 @@ const SearchFilter = () => {
 
 
 
+    // search keyword store function
     function handleSearch(e) {
       setKeyword(e.target.value);
     }
 
+    // store value of region
     function selectRegionHandler (e,value) {
       if(value !== null){
         setRegion(value.title);
@@ -96,6 +104,7 @@ const SearchFilter = () => {
     )
 }
 
+// style of searchfilter
 const useStyles = makeStyles(theme =>
     createStyles({
         root: {

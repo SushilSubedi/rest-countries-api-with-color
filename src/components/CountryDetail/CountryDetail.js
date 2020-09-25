@@ -10,14 +10,17 @@ const CountryDetail = (props) => {
     const [country,setCountry] = useState({});
 
     const { data } = useContext(CountryContextAPI);
+    // param from webPage
      const { CountryID } = useParams();
 
+    // filter the exact element for specific country 
     useEffect(() => {
         if(data.length){
             setCountry(data.find(country => country.name === CountryID)) 
         }
     },[CountryID,data])
 
+    // navigation back to home page
     const NavigationHandler = () => {
         history.push('/');
     }
@@ -135,6 +138,7 @@ const CountryDetail = (props) => {
         </div>
     )
 }
+// style for countryDetails
 const useStyles = makeStyles(theme => 
     createStyles({
         root: {
