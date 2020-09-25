@@ -2,16 +2,17 @@ import React,{ useContext, useEffect } from 'react';
 import { makeStyles, createStyles,InputBase,fade,Box } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@material-ui/lab/Autocomplete';
+import Autocomplete, { createFilterOptions } from '@material-ui/lab/Autocomplete';
 import CountryContextAPI from '../../ContextAPI/CountryContextAPI/CountryContextAPI';
 import SearchContextAPI from '../../ContextAPI/SearchContextAPI/SearchContextAPI';
 import FilterContextAPI from '../../ContextAPI/FilterContextAPI/FilterContextAPI';
 
-// //filter
-// const filterOptions = createFilterOptions({
-//     matchFrom: 'start',
-//     stringify: (option) => option.title,
-//   });
+//filter
+const filterOptions = createFilterOptions({
+    matchFrom: 'start',
+    stringify: (option) => option.title,
+
+  });
 
 const SearchFilter = () => {
 
@@ -21,7 +22,7 @@ const SearchFilter = () => {
     const { setRegion } = useContext(FilterContextAPI);
 
     const listCountry = [];
-    const Region = [];
+    const region = [];
 
     useEffect(() => {
       if(data.length){
@@ -38,14 +39,14 @@ const SearchFilter = () => {
           for(let i=0; i < array.length; i++){
             if(uniqueArray.indexOf(array[i]) === -1) {
                 uniqueArray.push(array[i]);
-                Region.push({title:array[i], value:array[i]})
+                region.push({title:array[i], value:array[i]})
             }
           }
         }
         getUnique(listCountry)
       }
 
-    },[data,listCountry,Region])
+    },[data,listCountry,region])
 
 
 
@@ -53,8 +54,12 @@ const SearchFilter = () => {
       setKeyword(e.target.value);
     }
 
-    function selectRegionHandler (e) {
-      setRegion(Region[e.target.value]);
+    function selectRegionHandler (e,value) {
+      if(value !== null){
+        setRegion(value.title);
+      }else {
+        setRegion('');
+      }
     } 
 
 
@@ -78,10 +83,10 @@ const SearchFilter = () => {
             <Autocomplete
                 color="textPrimary"
                 id="filter-demo"
-                options={Region}
+                options={region}
                 getOptionLabel={(option) => option.title}
                 className={classes.Autocomplete}
-                // filterOptions={filterOptions}
+                filterOptions={filterOptions}
                 onChange={selectRegionHandler}
                 style={{ width: 200 }}
                 renderInput={(params) => <TextField {...params} label="Filter By Region" variant="outlined" />}

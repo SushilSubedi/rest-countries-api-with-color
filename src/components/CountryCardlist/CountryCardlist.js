@@ -18,16 +18,16 @@ const CountryCardlist = ()=> {
         if(data.length){
             setCardData(data);
         }
-    },[cardData,data])
+    },[data])
 
     useEffect(() => {
         if(region !== undefined){
-            if(region?.value !== null || region?.value !== undefined){
-                const filterData = data.filter(item => item.region === region.value);
+            if(region !== ''){
+                const filterData = data.filter(item => item.region === region);
                 setCardData(filterData);
+            }else if(region === '') {
+                setCardData(data);
             }   
-        }else {
-            setCardData(data)
         }
     },[region,data])
     
@@ -40,7 +40,7 @@ const CountryCardlist = ()=> {
                         let i = cardData.findIndex(items => items.name === item.name );
                         if(cardData[i].name.includes(keyword)){
                        return(
-                        <Grid item md={4} key={index}> 
+                        <Grid item md={3} key={index}> 
                             <CountryCard
                                 country={item.name}
                                 population={item.population}

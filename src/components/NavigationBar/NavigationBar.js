@@ -13,7 +13,6 @@ import axios from 'axios';
 const NavigationBar = (props) =>{
     const classes = useStyles();
     const [darkMode, setDarkMode] = useState(false);
-    // const [store,setStore] = useState([]);
 
     const { theme,setTheme } = useContext(ThemeContext);
     const { data,setData } = useContext(CountryData);
