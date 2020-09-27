@@ -10,7 +10,7 @@ import ThemeContext from '../../ContextAPI/ThemeContextAPI/ThemeContext';
 import CountryData from '../../ContextAPI/CountryContextAPI/CountryContextAPI';
 import axios from 'axios';
 
-const NavigationBar = (props) =>{
+const NavigationBar = () =>{
     const classes = useStyles();
     const [darkMode, setDarkMode] = useState(false);
 
@@ -51,7 +51,7 @@ const NavigationBar = (props) =>{
 
     return(
         <div className={classes.root}>
-            <AppBar position="fixed" className={classes.Appbar}>
+            <AppBar position="sticky" className={classes.Appbar}>
             <Toolbar className={classes.toolbar}>
                 <Typography variant="h5" className={classes.title}>
                   Where in the world?
@@ -70,7 +70,6 @@ const NavigationBar = (props) =>{
                 </div>
             </Toolbar>
             </AppBar>
-            {props.children}
       </div>  
     )
 }

@@ -3,7 +3,6 @@ import { CssBaseline } from '@material-ui/core';
 import Routers from './Router/Router';
 import { MuiThemeProvider,createMuiTheme } from '@material-ui/core/styles';
 import ThemeContext from './ContextAPI/ThemeContextAPI/ThemeContext';
-import NavigationBar from './components/NavigationBar/NavigationBar';
 import CountryData from './ContextAPI/CountryContextAPI/CountryContextAPI';
 
 const App = () => {
@@ -78,9 +77,7 @@ const App = () => {
       <CountryData.Provider value={store}>
         <MuiThemeProvider theme= {!theme ? lightTheme : darkTheme}>
             <CssBaseline/>
-            <NavigationBar>
               <Routers/>
-            </NavigationBar>
           </MuiThemeProvider>
       </CountryData.Provider>
     </ThemeContext.Provider>

@@ -28,7 +28,7 @@ const CountryDetail = (props) => {
     return(
         <div className={classes.root}>
             <Container className={classes.container}>
-                <Box padding="2% 1%">
+                <Box padding="3% 1%">
                     <Paper elevation={1} style={{width:'110px', height:'25'}}>
                         <Button className={classes.button} onClick={NavigationHandler}>
                             <ArrowBackIcon fontSize="small" style={{marginRight:'4px'}}/>
